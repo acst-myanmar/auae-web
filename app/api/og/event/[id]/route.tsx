@@ -4,6 +4,20 @@ import { getEvent } from "@/lib/getEvent";
 export const runtime = "edge";
 export const revalidate = 3600;
 
+const PADAUK_REGULAR_URL =
+  "https://raw.githubusercontent.com/google/fonts/main/ofl/padauk/Padauk-Regular.ttf";
+const PADAUK_BOLD_URL =
+  "https://raw.githubusercontent.com/google/fonts/main/ofl/padauk/Padauk-Bold.ttf";
+
+const padaukRegular = fetch(PADAUK_REGULAR_URL).then((res) => {
+  if (!res.ok) throw new Error("Failed to load Padauk-Regular.ttf");
+  return res.arrayBuffer();
+});
+const padaukBold = fetch(PADAUK_BOLD_URL).then((res) => {
+  if (!res.ok) throw new Error("Failed to load Padauk-Bold.ttf");
+  return res.arrayBuffer();
+});
+
 function formatEventTime(iso: string | null) {
   if (!iso) return null;
   const date = new Date(iso);
@@ -37,9 +51,12 @@ export async function GET(
   const time = formatEventTime(event.start_time) ?? "Time TBA";
   const joinCount = event.join_count ?? 0;
 
+  const [fontRegular, fontBold] = await Promise.all([padaukRegular, padaukBold]);
+
   return new ImageResponse(
     (
       <div
+        lang="my"
         style={{
           width: "1200px",
           height: "630px",
@@ -49,7 +66,7 @@ export async function GET(
           backgroundImage: "linear-gradient(135deg, #0F0F0F 0%, #1A1A1A 100%)",
           color: "#FFFFFF",
           fontFamily:
-            'ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial',
+            '"Padauk", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial',
         }}
       >
         <div
@@ -84,7 +101,7 @@ export async function GET(
           <div
             style={{
               fontSize: 64,
-              fontWeight: 800,
+              fontWeight: 700,
               lineHeight: 1.05,
               letterSpacing: -1,
               maxWidth: 1020,
@@ -150,7 +167,24 @@ export async function GET(
         </div>
       </div>
     ),
-    { width: 1200, height: 630 },
+    {
+      width: 1200,
+      height: 630,
+      fonts: [
+        {
+          name: "Padauk",
+          data: fontRegular,
+          weight: 400,
+          style: "normal",
+        },
+        {
+          name: "Padauk",
+          data: fontBold,
+          weight: 700,
+          style: "normal",
+        },
+      ],
+    },
   );
 }
 

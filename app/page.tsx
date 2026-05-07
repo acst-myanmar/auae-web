@@ -1,17 +1,21 @@
-import { createClient } from "@/utils/supabase/server";
-import { cookies } from "next/headers";
+import { SiteHeader } from "./(landing)/_components/SiteHeader";
+import { Hero } from "./(landing)/_components/Hero";
+import { FeaturesShowcase } from "./(landing)/_components/FeaturesShowcase";
+import { CommunityStrip } from "./(landing)/_components/CommunityStrip";
+import { DownloadCTA } from "./(landing)/_components/DownloadCTA";
+import { SiteFooter } from "./(landing)/_components/SiteFooter";
 
-export default async function Page() {
-  const cookieStore = await cookies();
-  const supabase = createClient(cookieStore);
-
-  const { data: todos } = await supabase.from("todos").select();
-
+export default function Page() {
   return (
-    <ul>
-      {todos?.map((todo) => (
-        <li key={todo.id}>{todo.name}</li>
-      ))}
-    </ul>
+    <>
+      <SiteHeader />
+      <main className="flex-1">
+        <Hero />
+        <FeaturesShowcase />
+        <CommunityStrip />
+        <DownloadCTA />
+      </main>
+      <SiteFooter />
+    </>
   );
 }
