@@ -4,29 +4,15 @@
     "details": [
       {
         "appID": "MVWVNR9386.com.acstlabs.auae",
-        "paths": [
-          "/events/*",
-          "/user/*",
-          "/posts/*",
-          "/faqs",
-          "/reset-password",
-          "/forgot-password",
-          "/login",
-          "/signup",
-          "/chat/*",
-          "/profile-edit",
-          "/events-map",
-          "NOT /dev/*",
-          "NOT /preview/*"
-        ]
+        "paths": ["*"]
       },
       {
         "appID": "MVWVNR9386.com.acstlabs.auae.development",
-        "paths": ["/dev/*"]
+        "paths": ["*"]
       },
       {
         "appID": "MVWVNR9386.com.acstlabs.auae.preview",
-        "paths": ["/preview/*"]
+        "paths": ["*"]
       }
     ]
   }
