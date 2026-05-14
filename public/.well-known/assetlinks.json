@@ -3,8 +3,30 @@
     "relation": ["delegate_permission/common.handle_all_urls"],
     "target": {
       "namespace": "android_app",
-      "package_name": "com.your.app",
-      "sha256_cert_fingerprints": ["YOUR_SHA256_FINGERPRINT"]
+      "package_name": "com.acstlabs.auae",
+      "sha256_cert_fingerprints": [
+        "REPLACE_WITH_SHA256_FOR_PRODUCTION_SIGNING_KEY"
+      ]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.acstlabs.auae.dev",
+      "sha256_cert_fingerprints": [
+        "6E:7F:22:11:5E:FB:36:F8:3F:04:05:1C:A2:CF:BC:43:9B:9E:27:29:5D:A3:29:90:06:43:9B:B9:38:5C:14:46"
+      ]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.acstlabs.auae.preview",
+      "sha256_cert_fingerprints": [
+        "F7:D7:BD:AD:93:7C:11:2D:67:40:C1:93:3F:F3:7B:59:F1:BF:6F:5F:37:D4:87:90:98:3A:E7:A9:A1:A0:61:D4"
+      ]
     }
   }
 ]
