@@ -1,9 +1,32 @@
 {
   "applinks": {
+    "apps": [],
     "details": [
       {
-        "appID": "TEAMID.com.your.app",
-        "paths": ["/e/*"]
+        "appID": "MVWVNR9386.com.acstlabs.auae",
+        "paths": [
+          "/events/*",
+          "/user/*",
+          "/posts/*",
+          "/faqs",
+          "/reset-password",
+          "/forgot-password",
+          "/login",
+          "/signup",
+          "/chat/*",
+          "/profile-edit",
+          "/events-map",
+          "NOT /dev/*",
+          "NOT /preview/*"
+        ]
+      },
+      {
+        "appID": "MVWVNR9386.com.acstlabs.auae.development",
+        "paths": ["/dev/*"]
+      },
+      {
+        "appID": "MVWVNR9386.com.acstlabs.auae.preview",
+        "paths": ["/preview/*"]
       }
     ]
   }
