@@ -111,13 +111,24 @@ export default function PrivacyPolicyPage() {
   return (
     <main className="min-h-screen bg-white">
       <div className="border-b border-neutral-200 bg-brand-soft/50">
-        <div className="mx-auto max-w-5xl px-5 py-6 md:px-8">
+        <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-4 px-5 py-6 md:px-8">
           <Link
             href="/"
             className="text-sm font-semibold text-brand-ink transition hover:text-neutral-950"
           >
             Auae
           </Link>
+          <nav
+            aria-label="Legal document links"
+            className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm"
+          >
+            <Link href="/privacy-policy/my" className="text-brand-ink underline">
+              မြန်မာ
+            </Link>
+            <Link href="/terms" className="text-neutral-700 hover:text-brand-ink">
+              Terms & Conditions
+            </Link>
+          </nav>
         </div>
       </div>
 
@@ -163,7 +174,9 @@ export default function PrivacyPolicyPage() {
           <p className="mt-5 text-sm leading-6 text-neutral-600">
             This policy is written in plain language for app store review and
             user transparency. It is not a substitute for advice from a
-            qualified privacy lawyer.
+            qualified privacy lawyer. The Burmese version is provided for user
+            convenience. If there is any conflict between translations, the
+            English version controls.
           </p>
         </header>
 
