@@ -5,14 +5,6 @@
       {
         "appID": "MVWVNR9386.com.acstlabs.auae",
         "paths": ["*"]
-      },
-      {
-        "appID": "MVWVNR9386.com.acstlabs.auae.development",
-        "paths": ["*"]
-      },
-      {
-        "appID": "MVWVNR9386.com.acstlabs.auae.preview",
-        "paths": ["*"]
       }
     ]
   }
